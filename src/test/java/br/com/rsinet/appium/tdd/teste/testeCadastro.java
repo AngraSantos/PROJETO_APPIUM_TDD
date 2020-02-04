@@ -1,6 +1,8 @@
 package br.com.rsinet.appium.tdd.teste;
 
 
+import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.iniciarDriver;
+
 import java.net.MalformedURLException;
 
 import org.junit.After;
@@ -8,9 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
-import br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage;
 import br.com.rsinet.appium.tdd.pageFactory.Cadastro;
-import br.com.rsinet.appium.tdd.pageFactory.telaInicial;
+import br.com.rsinet.appium.tdd.pageFactory.CriarConta;
+import br.com.rsinet.appium.tdd.pageFactory.Home;
 import io.appium.java_client.android.AndroidDriver;
 
 public class testeCadastro {
@@ -18,24 +20,25 @@ public class testeCadastro {
 //	private AndroidDriver<MobileElement> driver;
 	private AndroidDriver<WebElement> driver;
 	private Cadastro cadastro;
-	private telaInicial telainicial;
+	private Home telaInicial;
+	private CriarConta novaConta;
 	
 
 	@Before
 	public void inicio() throws MalformedURLException, InterruptedException {
 
-		driver = IniciarAplicacaoAdvantage.iniciarDriver();
-		
-		telainicial = new telaInicial(driver);
+		driver = iniciarDriver();
+		telaInicial = new Home(driver);
 		cadastro = new Cadastro(driver);
+		novaConta = new CriarConta(driver);
 	}
 
 	@Test
-	public void BuscandoTeste() throws Exception {
+	public void deveFazerUmtesteComSucesso() throws Exception {
 
-		telainicial.clicarMenu();
-		telainicial.clicarLogin();
-		telainicial.criarConta();
+		telaInicial.clicarMenu();
+		novaConta.clicarLogin();
+		novaConta.criarContaNova();
 
  		cadastro.usuario();
 		cadastro.email();
@@ -59,7 +62,7 @@ public class testeCadastro {
 	@After
 	public void finalizar() throws Exception {
 
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		driver.quit();
 	}
 
