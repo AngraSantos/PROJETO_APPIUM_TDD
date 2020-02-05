@@ -15,6 +15,7 @@ public class Cadastro {
 	private WebDriverWait wait;
 	private WebDriver driver;
 
+
 	@FindBy(how = How.XPATH, using = "//*[@resource-id='com.Advantage.aShopping:id/AosEditTextUserName']/child::*[1]")
 	private WebElement txtbx_username;
 
@@ -58,71 +59,70 @@ public class Cadastro {
 		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
 		wait = new WebDriverWait(this.driver, 20);
-	}
+		}
 
-	public void usuario() throws Exception {
+	public void usuario(String usuario) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_username)).click();
-		txtbx_username.sendKeys("AngraSan");
+		txtbx_username.sendKeys(usuario);
 	}
 
-	public void email() throws Exception {
+	public void email(String email) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_Email)).click();
-		txtbx_Email.sendKeys("angra.santos@hotmail.com.br");
+		txtbx_Email.sendKeys(email);
 	}
 
-	public void senha() throws Exception {
+	public void senha(String senha) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_Senha)).click();
-		txtbx_Senha.sendKeys("Angra123");
+		txtbx_Senha.sendKeys(senha);
 
 	}
 
-	public void confirmeSenha() throws Exception {
+	public void confirmeSenha(String confirmeSenha) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_ConfirmeSenha)).click();
-		txtbx_ConfirmeSenha.sendKeys("Angra123");
+		txtbx_ConfirmeSenha.sendKeys(confirmeSenha);
 	}
 
-	public void primeiroNome() throws Exception {
+	public void primeiroNome(String primeiroNome) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_Nome)).click();
-		txtbx_Nome.sendKeys("Angra");
+		txtbx_Nome.sendKeys(primeiroNome);
 	}
 
-	public void ultimoNome() throws Exception {
+	public void ultimoNome(String ultimoNome) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_UltimoNome)).click();
-		txtbx_UltimoNome.sendKeys("Santos");
+		txtbx_UltimoNome.sendKeys(ultimoNome);
 	}
 
-	public void telefone() throws Exception {
+	public void telefone(String telefone) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_Telefone)).click();
-		txtbx_Telefone.sendKeys("(11)97051-0060");
+		txtbx_Telefone.sendKeys(telefone);
 	}
 
-	public void pais(AndroidDriver<WebElement> driver) {
+	public void pais(AndroidDriver<WebElement> driver, String pais) throws Exception {
 
 		wait.until(ExpectedConditions.visibilityOf(select_Pais)).click();
 		driver.findElementByAndroidUIAutomator(
 				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-						+ "Brazil" + "\").instance(0))")
+						+ pais + "\").instance(0))")
 				.click();
 	}
 
-	public void cidade() throws Exception {
+	public void cidade(String cidade) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_Cidade)).click();
-		txtbx_Cidade.sendKeys("São Paulo");
+		txtbx_Cidade.sendKeys(cidade);
 	}
 
-	public void endereco() throws Exception {
+	public void endereco(String endereco) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_Endereco)).click();
-		txtbx_Endereco.sendKeys("Rua Tres Marias");
+		txtbx_Endereco.sendKeys(endereco);
 	}
 
-	public void estado() throws Exception {
+	public void estado(String estado) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_Estado)).click();
-		txtbx_Estado.sendKeys("São Paulo");
+		txtbx_Estado.sendKeys(estado);
 	}
-
-	public void cartaoPostal() throws Exception {
+	public void cartaoPostal(String cartaoPostal) throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_CartaoPostal)).click();
-		txtbx_CartaoPostal.sendKeys("01010-000");
+		txtbx_CartaoPostal.sendKeys(cartaoPostal);
 	}
 	public void Registrar() throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(btn_Registrar));

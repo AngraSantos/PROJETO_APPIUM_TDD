@@ -17,14 +17,8 @@ public class Acoes {
 		this.touch = new TouchAction(this.driver);
 	}
 
-	public void scrollPais() {
+	public void scroll() {
 
-		touch.press(PointOption.point(1055, 1395)).moveTo(PointOption.point(1051, 416)).release().perform();
+		touch.press(PointOption.point(1051, 1773)).moveTo(PointOption.point(1042, 353)).release().perform();
 	}
-
-	public void scrollRegistro() {
-		
-		touch.press(PointOption.point(1017, 1752)).moveTo(PointOption.point(1055, 748)).release().perform();
-	}
-
 }

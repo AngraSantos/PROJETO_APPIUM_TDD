@@ -39,10 +39,10 @@ public class IniciarAplicacaoAdvantage {
 		return driver;
 	}
 
-	public void FechandoJanela() {
+	public static AndroidDriver<WebElement> FechandoJanela() {
 
 		if (driver != null)
 			driver.quit();
-		driver = null;
+		 return driver = null;
 	}
 }
