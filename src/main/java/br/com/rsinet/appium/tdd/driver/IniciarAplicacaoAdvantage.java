@@ -11,7 +11,6 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class IniciarAplicacaoAdvantage {
 
-//	private static AndroidDriver<MobileElement> driver;
 	private static AndroidDriver<WebElement> driver;
 	private static DesiredCapabilities caps;
 
@@ -19,13 +18,12 @@ public class IniciarAplicacaoAdvantage {
 
 	}
 
-	public static AndroidDriver<WebElement> iniciarDriver() throws MalformedURLException, InterruptedException {
+	public static  AndroidDriver<WebElement> iniciarDriver() throws MalformedURLException  {
 		if (driver == null) {
 
 			caps = new DesiredCapabilities();
 
 			caps.setCapability("deviceName", "simulador");
-			caps.setCapability("udid", "emulator-5554");
 			caps.setCapability("platformName", "Android");
 			caps.setCapability("platformVersion", "9");
 			caps.setCapability("appPackage", "com.Advantage.aShopping");

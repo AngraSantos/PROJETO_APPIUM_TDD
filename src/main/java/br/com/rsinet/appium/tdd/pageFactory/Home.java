@@ -1,6 +1,5 @@
 package br.com.rsinet.appium.tdd.pageFactory;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -8,16 +7,28 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.android.AndroidDriver;
+
 public class Home {
 
 	private WebDriverWait wait;
-	private WebDriver driver;
+	private AndroidDriver<WebElement> driver;
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
 	private WebElement txtbx_menu;
 
-	public Home(WebDriver driver) {
-		this.driver = driver;
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.ImageView")
+	private WebElement txtbx_tablets;
+
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[4]/android.widget.ImageView")
+	private WebElement txtbx_mouse;
+
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.ImageView\r\n" + 
+			"")
+	private WebElement txtbx_CaixaDeSom;
+	
+	public Home(AndroidDriver<WebElement> driver) {
+		this.driver = (AndroidDriver<WebElement>) driver;
 		PageFactory.initElements(this.driver, this);
 		wait = new WebDriverWait(this.driver, 20);
 	}
@@ -28,5 +39,10 @@ public class Home {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_menu));
 		txtbx_menu.click();
 	}
-	
+
+	public void clicarTablet() {
+		wait.until(ExpectedConditions.elementToBeClickable(txtbx_tablets));
+		txtbx_tablets.click();
+	}
+
 }

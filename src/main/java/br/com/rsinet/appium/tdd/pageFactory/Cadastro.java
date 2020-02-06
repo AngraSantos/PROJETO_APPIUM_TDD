@@ -1,6 +1,5 @@
 package br.com.rsinet.appium.tdd.pageFactory;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -12,8 +11,9 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class Cadastro {
 
+	private AndroidDriver<WebElement> driver;
 	private WebDriverWait wait;
-	private WebDriver driver;
+//	private WebDriver driver;
 
 
 	@FindBy(how = How.XPATH, using = "//*[@resource-id='com.Advantage.aShopping:id/AosEditTextUserName']/child::*[1]")
@@ -55,8 +55,8 @@ public class Cadastro {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private WebElement btn_Registrar;
 
-	public Cadastro(WebDriver driver) {
-		this.driver = driver;
+	public Cadastro(AndroidDriver<WebElement> driver) {
+		this.driver = (AndroidDriver<WebElement>) driver;
 		PageFactory.initElements(this.driver, this);
 		wait = new WebDriverWait(this.driver, 20);
 		}

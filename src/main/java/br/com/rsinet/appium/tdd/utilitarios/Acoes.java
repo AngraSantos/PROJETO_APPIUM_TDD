@@ -11,10 +11,10 @@ public class Acoes {
 	private TouchAction touch;
 	private AndroidDriver<WebElement> driver;
 
-	public Acoes(AndroidDriver<WebElement> driver) {
+	public Acoes(AndroidDriver<WebElement> driver){
 
 		this.driver = driver;
-		this.touch = new TouchAction(this.driver);
+		this.touch = new TouchAction (this.driver);
 	}
 
 	public void scroll() {

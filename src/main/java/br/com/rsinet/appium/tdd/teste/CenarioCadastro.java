@@ -1,5 +1,6 @@
 package br.com.rsinet.appium.tdd.teste;
 
+import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.FechandoJanela;
 import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.iniciarDriver;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -14,20 +15,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage;
 import br.com.rsinet.appium.tdd.excel.MassaDeDados;
 import br.com.rsinet.appium.tdd.pageFactory.Cadastro;
-import br.com.rsinet.appium.tdd.pageFactory.CriarConta;
+import br.com.rsinet.appium.tdd.pageFactory.Login;
 import br.com.rsinet.appium.tdd.pageFactory.Home;
 import br.com.rsinet.appium.tdd.utilitarios.Acoes;
 import io.appium.java_client.android.AndroidDriver;
 
-public class testeCadastro {
+public class CenarioCadastro {
 
 	private AndroidDriver<WebElement> driver;
 	private Cadastro cadastro;
 	private Home telaInicial;
-	private CriarConta novaConta;
+	private Login novaConta;
 	private Acoes acao;
 	private WebDriverWait wait;
 	private MassaDeDados massa;
@@ -37,10 +37,10 @@ public class testeCadastro {
 	@BeforeMethod
 	public void inicio() throws MalformedURLException, InterruptedException {
 
-		driver = IniciarAplicacaoAdvantage.iniciarDriver();
+		driver = iniciarDriver();
 		telaInicial = new Home(driver);
 		cadastro = new Cadastro(driver);
-		novaConta = new CriarConta(driver);
+		novaConta = new Login(driver);
 		acao = new Acoes(driver);
 		massa = new MassaDeDados();
 		
@@ -117,7 +117,7 @@ public class testeCadastro {
 	@AfterMethod
 	public void finalizar() {
 
-		driver = IniciarAplicacaoAdvantage.FechandoJanela();
+		driver = FechandoJanela();
 		
 //		report.statusReported(test, result, driver);
 		
