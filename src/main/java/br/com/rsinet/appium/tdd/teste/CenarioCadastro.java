@@ -1,7 +1,7 @@
 package br.com.rsinet.appium.tdd.teste;
 
-import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.FechandoJanela;
-import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.iniciarDriver;
+import static br.com.rsinet.appium.tdd.driver.DriverAplicacaoAdvantage.FechandoJanela;
+import static br.com.rsinet.appium.tdd.driver.DriverAplicacaoAdvantage.iniciarDriver;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -21,20 +21,21 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenCadastro;
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenHome;
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenLogin;
 import br.com.rsinet.appium.tdd.excel.MassaDeDados;
-import br.com.rsinet.appium.tdd.pageFactory.Cadastro;
-import br.com.rsinet.appium.tdd.pageFactory.Home;
-import br.com.rsinet.appium.tdd.pageFactory.Login;
 import br.com.rsinet.appium.tdd.report.reports;
 import br.com.rsinet.appium.tdd.utilitarios.Acoes;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class CenarioCadastro {
 
-	private AndroidDriver<WebElement> driver;
-	private Cadastro cadastro;
-	private Home telaInicial;
-	private Login novaConta;
+	private AndroidDriver<MobileElement> driver;
+	private ScreenCadastro cadastro;
+	private ScreenHome telaInicial;
+	private ScreenLogin novaConta;
 	private Acoes acao;
 	private WebDriverWait wait;
 	private MassaDeDados massa;
@@ -50,9 +51,9 @@ public class CenarioCadastro {
 	public void inicio() throws MalformedURLException, InterruptedException {
 
 		driver = iniciarDriver();
-		telaInicial = new Home(driver);
-		cadastro = new Cadastro(driver);
-		novaConta = new Login(driver);
+		telaInicial = new ScreenHome(driver);
+		cadastro = new ScreenCadastro(driver);
+		novaConta = new ScreenLogin(driver);
 		acao = new Acoes(driver);
 		massa = new MassaDeDados();
 		wait = new WebDriverWait(driver, 10);
@@ -118,9 +119,7 @@ public class CenarioCadastro {
 		cadastro.estado(massa.estadoInvalido());
 		cadastro.endereco(massa.endereco());
 		cadastro.cidade(massa.cidade());
-		cadastro.cartaoPostal(massa.cartaoPostal());
-
-		cadastro.Registrar();
+		
 		
 		assertTrue(driver.getPageSource().contains("Use up to 10 characters"));
 		

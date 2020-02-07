@@ -1,4 +1,4 @@
-package br.com.rsinet.appium.tdd.pageFactory;
+package br.com.rsinet.appium.tdd.ScreenFactory;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,12 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
-public class Produto {
+public class ScreenProduto {
 
+	private AndroidDriver<MobileElement> driver;
 	private WebDriverWait wait;
-	private AndroidDriver<WebElement> driver;
 	
 	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Tablets\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[2]/android.widget.ImageView")
 	private WebElement txtbx_tabletEliteX2;
@@ -38,8 +39,8 @@ public class Produto {
 	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Search\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[4]/android.widget.ImageView")
 	private WebElement txtbx_mouseHPz4000;
 	
-	public Produto(AndroidDriver<WebElement> driver) {
-		this.driver = (AndroidDriver<WebElement>) driver;
+	public ScreenProduto(AndroidDriver<MobileElement> driver) {
+		this.driver = (AndroidDriver<MobileElement>) driver;
 		PageFactory.initElements(this.driver, this);
 		wait = new WebDriverWait(this.driver, 20);
 	}
@@ -74,9 +75,10 @@ public class Produto {
 		txtbx_incluirCarrinho.click();
 	}
 	
-	public void clicarCarrinho() {
+	public void clicarCarrinho() throws Exception {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_clicarCarrinho));
 		txtbx_clicarCarrinho.click();
+		Thread.sleep(3000);
 	}
 	
 	public void mouseHPz4000() {

@@ -1,6 +1,6 @@
 package br.com.rsinet.appium.tdd.teste;
 
-import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.FechandoJanela;
+import static br.com.rsinet.appium.tdd.driver.DriverAplicacaoAdvantage.FechandoJanela;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -19,18 +19,19 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage;
-import br.com.rsinet.appium.tdd.pageFactory.Home;
-import br.com.rsinet.appium.tdd.pageFactory.Produto;
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenHome;
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenProduto;
+import br.com.rsinet.appium.tdd.driver.DriverAplicacaoAdvantage;
 import br.com.rsinet.appium.tdd.report.reports;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 
 public class CenarioBuscarLupa {
 
-	private AndroidDriver<WebElement> driver;
-	private Produto produtos;
-	private Home telaInicial;
+	private AndroidDriver<MobileElement> driver;
+	private ScreenProduto produtos;
+	private ScreenHome telaInicial;
 	private WebDriverWait wait;
 	private ExtentTest test;
 	
@@ -43,9 +44,9 @@ public class CenarioBuscarLupa {
 	@BeforeMethod
 	public void inicio() throws Exception {
 
-		driver = IniciarAplicacaoAdvantage.iniciarDriver();
-		produtos = new Produto(driver);
-		telaInicial = new Home(driver);
+		driver = DriverAplicacaoAdvantage.iniciarDriver();
+		produtos = new ScreenProduto(driver);
+		telaInicial = new ScreenHome(driver);
 		wait = new WebDriverWait(driver, 20);
 
 	}

@@ -1,7 +1,7 @@
 package br.com.rsinet.appium.tdd.teste;
 
-import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.FechandoJanela;
-import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.iniciarDriver;
+import static br.com.rsinet.appium.tdd.driver.DriverAplicacaoAdvantage.FechandoJanela;
+import static br.com.rsinet.appium.tdd.driver.DriverAplicacaoAdvantage.iniciarDriver;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -21,20 +21,21 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenHome;
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenLogin;
+import br.com.rsinet.appium.tdd.ScreenFactory.ScreenProduto;
 import br.com.rsinet.appium.tdd.excel.MassaDeDados;
-import br.com.rsinet.appium.tdd.pageFactory.Home;
-import br.com.rsinet.appium.tdd.pageFactory.Login;
-import br.com.rsinet.appium.tdd.pageFactory.Produto;
 import br.com.rsinet.appium.tdd.report.reports;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class CenarioBuscarHome {
 
-	private AndroidDriver<WebElement> driver;
-	private Home telaInicial;
-	private Produto produtos;
+	private AndroidDriver<MobileElement> driver;
+	private ScreenHome telaInicial;
+	private ScreenProduto produtos;
 	private WebDriverWait wait;
-	private Login telaLogin;
+	private ScreenLogin telaLogin;
 	private MassaDeDados massa;
 	private ExtentTest test;
 	
@@ -48,10 +49,10 @@ public class CenarioBuscarHome {
 	public void inicio() throws MalformedURLException, InterruptedException {
 
 		driver = iniciarDriver();
-		telaInicial = new Home(driver);
-		produtos = new Produto(driver);
+		telaInicial = new ScreenHome(driver);
+		produtos = new ScreenProduto(driver);
 		massa = new MassaDeDados();
-		telaLogin = new Login(driver);
+		telaLogin = new ScreenLogin(driver);
 		wait = new WebDriverWait(driver, 20);
 	}
 

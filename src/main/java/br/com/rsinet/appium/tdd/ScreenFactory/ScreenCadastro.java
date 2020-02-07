@@ -1,4 +1,4 @@
-package br.com.rsinet.appium.tdd.pageFactory;
+package br.com.rsinet.appium.tdd.ScreenFactory;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
-public class Cadastro {
+public class ScreenCadastro {
 
-	private AndroidDriver<WebElement> driver;
+	private AndroidDriver<MobileElement> driver;
 	private WebDriverWait wait;
-//	private WebDriver driver;
 
 
 	@FindBy(how = How.XPATH, using = "//*[@resource-id='com.Advantage.aShopping:id/AosEditTextUserName']/child::*[1]")
@@ -55,8 +55,8 @@ public class Cadastro {
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private WebElement btn_Registrar;
 
-	public Cadastro(AndroidDriver<WebElement> driver) {
-		this.driver = (AndroidDriver<WebElement>) driver;
+	public ScreenCadastro(AndroidDriver<MobileElement> driver) {
+		this.driver = (AndroidDriver<MobileElement>) driver;
 		PageFactory.initElements(this.driver, this);
 		wait = new WebDriverWait(this.driver, 20);
 		}
@@ -97,7 +97,7 @@ public class Cadastro {
 		txtbx_Telefone.sendKeys(telefone);
 	}
 
-	public void pais(AndroidDriver<WebElement> driver, String pais) throws Exception {
+	public void pais(AndroidDriver<MobileElement> driver, String pais) throws Exception {
 
 		wait.until(ExpectedConditions.visibilityOf(select_Pais)).click();
 		driver.findElementByAndroidUIAutomator(
