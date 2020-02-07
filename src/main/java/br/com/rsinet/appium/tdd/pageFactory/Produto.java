@@ -34,6 +34,9 @@ public class Produto {
 	
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewCart")
 	private WebElement txtbx_clicarCarrinho;
+
+	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Search\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[4]/android.widget.ImageView")
+	private WebElement txtbx_mouseHPz4000;
 	
 	public Produto(AndroidDriver<WebElement> driver) {
 		this.driver = (AndroidDriver<WebElement>) driver;
@@ -51,13 +54,12 @@ public class Produto {
 		txtbx_LogitechX100.click();
 	}
 	
-	public void Quatidade() {
+	public void Quantidade() {
 		wait.until(ExpectedConditions.visibilityOf(btn_Quantidade));
 		btn_Quantidade.click();
 	}
 	
-	public void QuatidadeDeProduto(String QuantidadeProduto) {
-		wait.until(ExpectedConditions.visibilityOf(btn_SelecionarQuantidade));
+	public void QuantidadeDeProduto(String QuantidadeProduto) {
 		btn_SelecionarQuantidade.clear();
 		btn_SelecionarQuantidade.sendKeys(QuantidadeProduto);
 	}
@@ -75,6 +77,11 @@ public class Produto {
 	public void clicarCarrinho() {
 		wait.until(ExpectedConditions.visibilityOf(txtbx_clicarCarrinho));
 		txtbx_clicarCarrinho.click();
+	}
+	
+	public void mouseHPz4000() {
+		wait.until(ExpectedConditions.visibilityOf(txtbx_mouseHPz4000));
+		txtbx_mouseHPz4000.click();
 	}
 	
 	

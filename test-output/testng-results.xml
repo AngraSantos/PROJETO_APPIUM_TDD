@@ -2,23 +2,38 @@
 <testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28631" started-at="2020-02-06T18:58:22Z" finished-at="2020-02-06T18:58:50Z">
+  <suite name="Default suite" duration-ms="26538" started-at="2020-02-07T02:43:13Z" finished-at="2020-02-07T02:43:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28631" started-at="2020-02-06T18:58:22Z" finished-at="2020-02-06T18:58:50Z">
+    <test name="Default test" duration-ms="26538" started-at="2020-02-07T02:43:13Z" finished-at="2020-02-07T02:43:40Z">
       <class name="br.com.rsinet.appium.tdd.teste.CenarioBuscarHome">
-        <test-method status="PASS" signature="inicio()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@685cb137]" name="inicio" is-config="true" duration-ms="9868" started-at="2020-02-06T15:58:22Z" finished-at="2020-02-06T15:58:32Z">
+        <test-method status="PASS" signature="report()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@7cd62f43]" name="report" is-config="true" duration-ms="106" started-at="2020-02-06T23:43:13Z" finished-at="2020-02-06T23:43:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- report -->
+        <test-method status="PASS" signature="inicio()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@7cd62f43]" name="inicio" is-config="true" duration-ms="7154" started-at="2020-02-06T23:43:14Z" finished-at="2020-02-06T23:43:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicio -->
-        <test-method status="PASS" signature="deveBuscarProduto1()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@685cb137]" name="deveBuscarProduto1" duration-ms="18747" started-at="2020-02-06T15:58:32Z" finished-at="2020-02-06T15:58:50Z">
+        <test-method status="PASS" signature="deveBuscarProduto1()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@7cd62f43]" name="deveBuscarProduto1" duration-ms="17662" started-at="2020-02-06T23:43:21Z" finished-at="2020-02-06T23:43:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deveBuscarProduto1 -->
-        <test-method status="PASS" signature="finalizar()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@685cb137]" name="finalizar" is-config="true" duration-ms="0" started-at="2020-02-06T15:58:50Z" finished-at="2020-02-06T15:58:50Z">
+        <test-method status="PASS" signature="finalizar(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@7cd62f43]" name="finalizar" is-config="true" duration-ms="1255" started-at="2020-02-06T23:43:38Z" finished-at="2020-02-06T23:43:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=deveBuscarProduto1 status=SUCCESS method=CenarioBuscarHome.deveBuscarProduto1()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@7cd62f43] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finalizar -->
+        <test-method status="PASS" signature="finalizandoReport()[pri:0, instance:br.com.rsinet.appium.tdd.teste.CenarioBuscarHome@7cd62f43]" name="finalizandoReport" is-config="true" duration-ms="348" started-at="2020-02-06T23:43:40Z" finished-at="2020-02-06T23:43:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finalizandoReport -->
       </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioBuscarHome -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

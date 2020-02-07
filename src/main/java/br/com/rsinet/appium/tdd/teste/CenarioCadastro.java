@@ -5,20 +5,27 @@ import static br.com.rsinet.appium.tdd.driver.IniciarAplicacaoAdvantage.iniciarD
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.appium.tdd.excel.MassaDeDados;
 import br.com.rsinet.appium.tdd.pageFactory.Cadastro;
-import br.com.rsinet.appium.tdd.pageFactory.Login;
 import br.com.rsinet.appium.tdd.pageFactory.Home;
+import br.com.rsinet.appium.tdd.pageFactory.Login;
+import br.com.rsinet.appium.tdd.report.reports;
 import br.com.rsinet.appium.tdd.utilitarios.Acoes;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -31,9 +38,14 @@ public class CenarioCadastro {
 	private Acoes acao;
 	private WebDriverWait wait;
 	private MassaDeDados massa;
+	private ExtentTest test;
 
-//	private ExtentTest test;
-
+	@BeforeTest
+	public void report () {
+		
+		reports.Report();
+	}
+	
 	@BeforeMethod
 	public void inicio() throws MalformedURLException, InterruptedException {
 
@@ -43,10 +55,7 @@ public class CenarioCadastro {
 		novaConta = new Login(driver);
 		acao = new Acoes(driver);
 		massa = new MassaDeDados();
-		
 		wait = new WebDriverWait(driver, 10);
-
-//		report.Report();
 
 	}
 
@@ -82,6 +91,8 @@ public class CenarioCadastro {
 		WebElement element = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser"));
 		wait.until(ExpectedConditions.visibilityOf(element));
 		assertEquals(element.getText(), massa.usuario());
+		
+		test = reports.createTest("Cadastrar Usuario");
 	}
 
 	@Test
@@ -112,22 +123,23 @@ public class CenarioCadastro {
 		cadastro.Registrar();
 		
 		assertTrue(driver.getPageSource().contains("Use up to 10 characters"));
+		
+		test = reports.createTest("Cadastrar Usuario com Falha");
+	
 	}
 
 	@AfterMethod
-	public void finalizar() {
+	public void finalizar(ITestResult result) throws IOException {
 
+		reports.statusReport (test, result, driver);
+		
 		driver = FechandoJanela();
 		
-//		report.statusReported(test, result, driver);
-		
-		 
 	}
-//
-//	@AfterTest
-//	public void finalizar2() {
-//
-//		report.quitExtent();
-//	}
 
+	@AfterTest
+	public void finalizandoReport () {
+		
+		reports.quitExtent();
+	}
 }
