@@ -117,9 +117,8 @@ public class CenarioCadastro {
 
 		cadastro.pais(driver, "Brazil");
 		cadastro.estado(massa.estadoInvalido());
-		cadastro.endereco(massa.endereco());
-		cadastro.cidade(massa.cidade());
-		
+		cadastro.endereco("");
+			
 		
 		assertTrue(driver.getPageSource().contains("Use up to 10 characters"));
 		

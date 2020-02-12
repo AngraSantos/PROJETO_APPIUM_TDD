@@ -3,25 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite de Teste]">
   <test name="Automacao utilizando TDD(failed)">
     <classes>
-      <class name="br.com.rsinet.appium.tdd.teste.CenarioBuscarLupa">
-        <methods>
-          <include name="finalizar"/>
-          <include name="inicio"/>
-        </methods>
-      </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioBuscarLupa -->
       <class name="br.com.rsinet.appium.tdd.teste.CenarioBuscarHome">
         <methods>
           <include name="deveBuscarProduto1"/>
           <include name="finalizar"/>
+          <include name="report"/>
           <include name="inicio"/>
+          <include name="finalizandoReport"/>
         </methods>
       </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioBuscarHome -->
-      <class name="br.com.rsinet.appium.tdd.teste.CenarioCadastro">
-        <methods>
-          <include name="finalizar"/>
-          <include name="inicio"/>
-        </methods>
-      </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioCadastro -->
     </classes>
   </test> <!-- Automacao utilizando TDD(failed) -->
 </suite> <!-- Failed suite [Suite de Teste] -->
