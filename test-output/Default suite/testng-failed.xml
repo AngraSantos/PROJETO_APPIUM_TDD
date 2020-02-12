@@ -5,11 +5,10 @@
     <classes>
       <class name="br.com.rsinet.appium.tdd.teste.CenarioBuscarHome">
         <methods>
-          <include name="deveBuscarProduto1"/>
           <include name="finalizar"/>
+          <include name="deveBuscarProduto0"/>
           <include name="report"/>
           <include name="inicio"/>
-          <include name="finalizandoReport"/>
         </methods>
       </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioBuscarHome -->
     </classes>

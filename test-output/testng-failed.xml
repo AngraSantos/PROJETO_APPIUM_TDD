@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite de Teste]">
+  <test name="Automacao utilizando TDD(failed)">
     <classes>
-      <class name="br.com.rsinet.appium.tdd.teste.CenarioBuscarHome">
+      <class name="br.com.rsinet.appium.tdd.teste.CenarioBuscarLupa">
         <methods>
+          <include name="deveBuscarProduto0"/>
           <include name="deveBuscarProduto1"/>
           <include name="finalizar"/>
           <include name="report"/>
           <include name="inicio"/>
-          <include name="finalizandoReport"/>
+        </methods>
+      </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioBuscarLupa -->
+      <class name="br.com.rsinet.appium.tdd.teste.CenarioBuscarHome">
+        <methods>
+          <include name="deveBuscarProduto1"/>
+          <include name="finalizar"/>
+          <include name="deveBuscarProduto0"/>
+          <include name="report"/>
+          <include name="inicio"/>
         </methods>
       </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioBuscarHome -->
+      <class name="br.com.rsinet.appium.tdd.teste.CenarioCadastro">
+        <methods>
+          <include name="deveFazerUmteste0"/>
+          <include name="finalizar"/>
+          <include name="deveFazerUmteste1"/>
+          <include name="report"/>
+          <include name="inicio"/>
+        </methods>
+      </class> <!-- br.com.rsinet.appium.tdd.teste.CenarioCadastro -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Automacao utilizando TDD(failed) -->
+</suite> <!-- Failed suite [Suite de Teste] -->

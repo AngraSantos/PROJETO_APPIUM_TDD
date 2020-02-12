@@ -21,6 +21,9 @@ public class ScreenHome {
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.ImageView")
 	private WebElement txtbx_tablets;
 
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.ImageView")
+	private WebElement txtbx_headphones;
+
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[4]/android.widget.ImageView")
 	private WebElement txtbx_mouse;
 
@@ -40,8 +43,6 @@ public class ScreenHome {
 	}
 
 	public void clicarMenu() throws Exception {
-//		wait.pollingEvery(Duration.ofSeconds(10));
-		Thread.sleep(3000);
 		wait.until(ExpectedConditions.visibilityOf(txtbx_menu));
 		txtbx_menu.click();
 	}
@@ -49,6 +50,11 @@ public class ScreenHome {
 	public void clicarTablet() {
 		wait.until(ExpectedConditions.elementToBeClickable(txtbx_tablets));
 		txtbx_tablets.click();
+	}
+
+	public void clicarHeadphones() {
+		wait.until(ExpectedConditions.elementToBeClickable(txtbx_headphones));
+		txtbx_headphones.click();
 	}
 
 	public void buscarLupa(String produto) {

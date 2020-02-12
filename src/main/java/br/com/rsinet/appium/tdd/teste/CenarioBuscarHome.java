@@ -26,6 +26,7 @@ import br.com.rsinet.appium.tdd.ScreenFactory.ScreenLogin;
 import br.com.rsinet.appium.tdd.ScreenFactory.ScreenProduto;
 import br.com.rsinet.appium.tdd.excel.MassaDeDados;
 import br.com.rsinet.appium.tdd.report.reports;
+import br.com.rsinet.appium.tdd.utilitarios.RolagemTela;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -38,6 +39,7 @@ public class CenarioBuscarHome {
 	private ScreenLogin telaLogin;
 	private MassaDeDados massa;
 	private ExtentTest test;
+	private RolagemTela rolagem;
 	
 	@BeforeTest
 	public void report () {
@@ -49,23 +51,25 @@ public class CenarioBuscarHome {
 	public void inicio() throws MalformedURLException, InterruptedException {
 
 		driver = iniciarDriver();
+		
 		telaInicial = new ScreenHome(driver);
 		produtos = new ScreenProduto(driver);
 		massa = new MassaDeDados();
 		telaLogin = new ScreenLogin(driver);
+		rolagem = new RolagemTela(driver);
 		wait = new WebDriverWait(driver, 20);
 	}
 
 	@Test
 	public void deveBuscarProduto0() {
 
-		telaInicial.clicarTablet();
-
-		produtos.tabletEliteX2();
-
+		rolagem.scroll("Mice");
+		
+		rolagem.scroll("MICROSOFT SCULPT TOUCH MOUSE");
+		
 		WebElement element = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.TextView"));
 		wait.until(ExpectedConditions.visibilityOf(element));
-		assertEquals(element.getText(), "HP ELITE X2 1011 G1 TABLET");
+		assertEquals(element.getText(), "MICROSOFT SCULPT TOUCH MOUSE");
 		
 		test = reports.createTest("Buscando produto pela Home");
 	}
@@ -80,9 +84,9 @@ public class CenarioBuscarHome {
 		telaLogin.incluirSenha(massa.senha());
 		telaLogin.apertarBotaoEntrarLogin();
 		
-		telaInicial.clicarTablet();
+		telaInicial.clicarHeadphones();
 		
-		produtos.tabletEliteX2();
+		produtos.FoneLogitech();
 		produtos.Quantidade();
 		produtos.QuantidadeDeProduto("20");
 		produtos.confirmarQuantidade();

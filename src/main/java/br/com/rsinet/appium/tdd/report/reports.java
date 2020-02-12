@@ -14,7 +14,6 @@ import br.com.rsinet.appium.tdd.utilitarios.ScreenchotUtilitarios;
 
 public class reports {
 
-	
 	private static ExtentHtmlReporter ExtentHtmlReporter;
 	private static ExtentReports extentReports;
 	private static ExtentTest ExtentTest;
@@ -44,7 +43,7 @@ public class reports {
 			test.fail("Ocorreu um erro: ", MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
 		}	
 	}
-	/* fechando */
+	
 	public static void quitExtent() {
 		extentReports.flush();
 	}

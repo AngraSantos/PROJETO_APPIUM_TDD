@@ -26,7 +26,7 @@ import br.com.rsinet.appium.tdd.ScreenFactory.ScreenHome;
 import br.com.rsinet.appium.tdd.ScreenFactory.ScreenLogin;
 import br.com.rsinet.appium.tdd.excel.MassaDeDados;
 import br.com.rsinet.appium.tdd.report.reports;
-import br.com.rsinet.appium.tdd.utilitarios.Acoes;
+import br.com.rsinet.appium.tdd.utilitarios.RolagemTela;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -36,7 +36,7 @@ public class CenarioCadastro {
 	private ScreenCadastro cadastro;
 	private ScreenHome telaInicial;
 	private ScreenLogin novaConta;
-	private Acoes acao;
+	private RolagemTela rolagem;
 	private WebDriverWait wait;
 	private MassaDeDados massa;
 	private ExtentTest test;
@@ -51,10 +51,11 @@ public class CenarioCadastro {
 	public void inicio() throws MalformedURLException, InterruptedException {
 
 		driver = iniciarDriver();
+		
 		telaInicial = new ScreenHome(driver);
 		cadastro = new ScreenCadastro(driver);
 		novaConta = new ScreenLogin(driver);
-		acao = new Acoes(driver);
+		rolagem = new RolagemTela(driver);
 		massa = new MassaDeDados();
 		wait = new WebDriverWait(driver, 10);
 
@@ -77,7 +78,7 @@ public class CenarioCadastro {
 		cadastro.ultimoNome(massa.ultimoNome());
 		cadastro.telefone(massa.telefone());
 
-		acao.scroll();
+		rolagem.scroll("ADDRESS");
 
 		cadastro.pais(driver, "Brazil");
 		cadastro.estado(massa.estado());
@@ -87,6 +88,7 @@ public class CenarioCadastro {
 
 		cadastro.Registrar();
 
+		RolagemTela.scrollTempoInicialparaMenu();
 		telaInicial.clicarMenu();
 
 		WebElement element = driver.findElement(By.id("com.Advantage.aShopping:id/textViewMenuUser"));
@@ -113,13 +115,12 @@ public class CenarioCadastro {
 		cadastro.ultimoNome(massa.ultimoNome());
 		cadastro.telefone(massa.telefone());
 
-		acao.scroll();
+		rolagem.scroll("ADDRESS");
 
 		cadastro.pais(driver, "Brazil");
 		cadastro.estado(massa.estadoInvalido());
 		cadastro.endereco("");
 			
-		
 		assertTrue(driver.getPageSource().contains("Use up to 10 characters"));
 		
 		test = reports.createTest("Cadastrar Usuario com Falha");
